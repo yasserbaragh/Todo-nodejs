@@ -1,0 +1,380 @@
+.main {
+    position: relative;
+
+    h2 {
+        font-size: 2rem;
+        font-weight: 900;
+        color: #BF7E96;
+        margin: 10px auto;
+        text-align: center;
+    }
+
+    .separator {
+        padding: 20px;
+        position: relative;
+        display: flex;
+        flex-direction: column-reverse;
+
+        .delete {
+            padding: 0;
+            padding-top: 10px;
+            button {
+                margin: 0;
+            }
+        }
+
+        .done {
+            button {
+                background-color: #D9D2D0;
+                color: #59362E;
+
+                &:hover {
+                    background-color: transparent;
+                    color: #D9D2D0;
+                }
+            }
+        }
+
+        .tasks {
+            color: #59362E;
+            margin-top: 30px;
+
+            p {
+                text-transform: capitalize;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+
+            .dash {
+                display: flex;
+                justify-content: space-between;
+                margin: 10px 0;
+
+                button {
+                    border: none;
+                    background-color: transparent;
+                    outline: none;
+                    color: inherit;
+                    font-weight: 600;
+                    position: relative;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        bottom: -3px;
+                        left: 0;
+                        height: 2px;
+                        width: 100%;
+                        background-color: #59362E;
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                    font-weight: 600;
+                }
+
+            }
+
+            .task {
+                background-color: #59362E;
+                padding: 20px;
+                border: 5px solid #BF7E96;
+
+                a {
+                    background-color: #59362E;
+                    text-decoration: none;
+                    color: #D9D2D0;
+                    margin: 10px 0;
+
+                }
+
+                hr {
+                    margin: 10px 0;
+                }
+
+                p {
+                    overflow: hidden;
+                    //display: -webkit-box;
+                    text-overflow: ellipsis;
+                    -webkit-line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                    white-space: pre-wrap;
+                }
+
+                h3 {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    text-align: center;
+                }
+
+                .delete {
+                    
+                    button {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        .addTasks {
+           
+
+            .display {
+                display: none;
+                position: fixed;
+                top: 20vh;
+                //height: 80vh;
+                
+                width: 100%;
+                left: 0;
+                padding-top: 20px;
+
+                &.active {
+                    display: block;
+                    background-color: #59362E;
+                    padding: 20px;
+
+                }
+
+                .close {
+                    position: absolute;
+                    top: 5px;
+                    right: 10px;
+                }
+            }
+
+            .bottom {
+                display: none;
+            }
+
+
+        }
+    }
+}
+
+.singleTask {
+    h2 {
+        color: #59362E;
+        margin: 12px auto;
+        text-align: start;
+    }
+
+    .task {
+        background-color: #59362E;
+        padding: 20px;
+        //margin-right: 10px;
+        border: 5px solid #BF7E96;
+
+        a {
+            background-color: #59362E;
+            text-decoration: none;
+            color: #D9D2D0;
+            margin: 10px 0;
+
+        }
+
+    }
+}
+
+.form {
+    color: #D9D2D0;
+
+    input,
+    textarea {
+        width: 100%;
+        border-radius: 5px;
+        background-color: #D9D2D0;
+        padding: 5px;
+        margin: 10px 0;
+        color: #59362E;
+        border: none;
+    }
+
+    .but {
+        text-align: center;
+
+        button {
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        button {
+            padding: 5px 15px;
+            color: #D9D2D0;
+            background-color: transparent;
+            border-radius: 10px;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+    }
+}
+
+.close {
+    button {
+        padding: 5px;
+        background-color: #D9D2D0;
+        color: #59362E;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        text-transform: capitalize;
+
+        &:hover {
+            background-color: #BF7E96;
+        }
+    }
+}
+
+@media(min-width:768px) {
+    .main {
+        .separator {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            font-size: 1.5rem;
+            gap: 50px;
+
+            flex-direction: row-reverse;
+            margin: 0 10px;
+            //height: 80vh;
+
+            * {
+                flex: 1;
+            }
+
+            .tasks {
+                width: 40%;
+                margin-top: 0;
+                overflow-y: scroll;
+                height: 90vh;
+
+                .dash {
+                    .hid {
+                        display: none;
+                    }
+                }
+
+                .task {
+                    overflow-y: scroll;
+                    max-height: 70vh;
+
+                    &::-webkit-scrollbar {
+                        background-color: #59362E;
+                        width: 5px;
+                    }
+
+                    &::-webkit-scrollbar-track {
+                        width: 5px;
+                        background-color: #59362E;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background-color: #BF7E96;
+                    }
+                }
+            }
+
+            .addTasks {
+                position: relative;
+                width: auto;
+                width: 30%;
+                background-color: transparent;
+                overflow-y: scroll;
+                height: 90vh;
+                background-color: transparent;
+
+                h2 {
+                    color: #59362E;
+                    text-align: start;
+                }
+
+                .display {
+                    display: block;
+                    position: relative;
+                    top: 0;
+                    left: 0;
+
+                    .form {
+                        background-color: #59362E;
+                        padding: 50px;
+                        margin-top: 12px;
+                        border: 5px solid #BF7E96;
+                    }
+
+                    .close {
+                        display: none;
+                    }
+                }
+
+                .bottom {
+                    display: block;
+                    margin: 0 20px;
+                    img {
+                        width: 70%;
+                    }
+                }
+            }
+
+            .tasks,.addTasks {
+                padding-right: 20px;
+                &::-webkit-scrollbar {
+                    background-color: #BF7E96;
+                    width: 5px;
+                }
+                &::-webkit-scrollbar-track {
+                    background-color: #BF7E96;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background-color: #59362E;
+                }
+            }
+            
+        }
+    }
+}
+
+.doneTask {
+    p {
+        margin: 10px 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main {
+        .separator {
+            gap: 200px;
+            margin: 0 50px;
+
+            .buttons {
+                display: flex;
+                justify-content: space-between;
+                margin: 0;
+
+                .delete {
+                    padding: 0;
+                    padding-top: 10px;
+                }
+
+                .done {
+                    text-align: start;
+                }
+            }
+
+            .allTasks {
+                .task {
+                    height: 120%;
+                }
+            }
+        }
+    }
+}
+
+.no {
+    color: #D9D2D0;
+}

@@ -1,0 +1,16 @@
+<div class="changePass">
+    <h3>Change Password</h3>
+    <form action="/changePassword" method="post" class="form">
+        <% if(existPass) { %>
+            <label for="old password">Old Password</label>
+            <input type="password" placeholder="Enter Password" name="old_password"> <br>
+            <% } %>
+        <label for="password"><b>New Password</b></label> <br>
+        <input type="password" placeholder="Enter Password" name="password"> <br>
+
+        <% if(error) { %>
+            <p class="error"><%= error %></p>
+            <% } %>
+        <button type="submit">change password</button>
+    </form>
+</div>

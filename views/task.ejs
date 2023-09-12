@@ -1,0 +1,38 @@
+<div class="todo">
+    
+    <div class="pc">
+        <div class="flex">
+            <h3>
+                <%= task.title %>
+            </h3>
+            <p>
+                <%= task.description %>
+            </p>
+            <p><%= task.dateId.date.toLocaleDateString('en-US') %> <%= task.dateId.time %></p>
+        </div>
+        <div>
+            <form action="/tasks/<%= task._id %>" method="post" class="form">
+                
+                <input type="text" name="title" value="<%= task.title %>"/><br />
+                
+                <textarea cols="40" rows="8" name="description"><%= task.description %></textarea> <br />
+                
+                <input type="date" name="date" value="<%= task.dateId.date %>"/> <br />
+                
+                <input type="time" name="time" value="<%= task.dateId.time %>"/> <br>
+                
+                <% if(error) { %>
+                    <p class="error"><%= error %></p>
+                    <% } %>
+                    
+                <div class="button">
+                    <button type="submit">Edit Task</button>
+                </div>
+            </form>
+            
+            <form action="/tasks/delete/<%= task.id %>" method="post" class="delete">
+                <button type="submit">deleteTask</button>
+            </form>
+        </div>
+    </div>
+</div>

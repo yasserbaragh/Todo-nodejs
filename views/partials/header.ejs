@@ -1,0 +1,18 @@
+<header class="header">
+  <a href="/home" class="header__logo">TODO</a>
+
+  <div class="profile">
+    <% if(currUser.img) { %>
+      <img src="<%= currUser.img %>" alt="">
+      <% } else { %>
+        <img src="/images/icons8-avatar-24.png" alt="">
+        <% } %>
+    <div class="hidden">
+      <a href="/profile"><%= currUser.username %></a> <hr>
+      <a href="/logout">
+        logout
+      </a>
+    </div>
+  </div>
+
+</header>

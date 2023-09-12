@@ -1,0 +1,207 @@
+.pro {
+    .info {
+        text-align: center;
+        color: #59362E;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        padding: 20px;
+        gap: 5px;
+
+        /** {
+            flex: 1;
+        }*/
+
+        .img {
+            position: relative;
+
+            img {
+                position: absolute;
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                border-radius: 50%;
+                width: 80px;
+            }
+        }
+
+        .name {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h2,
+            h3 {
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+
+    .sep {
+        .back {
+            display: none;
+        }
+    }
+
+    .form {
+        padding: 30px;
+        color: #BF7E96;
+        text-transform: capitalize;
+
+        /*.img {
+            cursor: pointer;
+            input[type="file"] {
+                display: none;
+            }
+        }*/
+
+        input {
+            color: #59362E;
+            font-weight: 600;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #BF7E96;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.4s ease-in-out;
+
+            &:focus {
+                outline: none;
+                border: none;
+            }
+
+            &:hover {
+                background-color: #D9D2D0;
+
+                a {
+                    color: #BF7E96;
+                }
+            }
+
+            a {
+                text-decoration: none;
+                color: #D9D2D0;
+                text-transform: capitalize;
+                font-weight: 600;
+
+            }
+        }
+
+        input[type="submit"] {
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.changePass {
+    text-align: center;
+
+    h3 {
+        color: #BF7E96;
+        font-weight: bold;
+        font-size: 2rem;
+        margin: 20px auto;
+    }
+
+    .form {
+        text-align: start;
+        padding: 30px;
+        color: #BF7E96;
+        text-transform: capitalize;
+
+        input {
+            color: #59362E;
+            font-weight: 600;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #BF7E96;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            cursor: pointer;
+            color: #D9D2D0;
+            text-transform: capitalize;
+            font-weight: 600;
+            transition: all 0.4s ease-in-out;
+            margin-top: 20px;
+
+            &:focus {
+                outline: none;
+                border: none;
+            }
+
+            &:hover {
+                background-color: #D9D2D0;
+                color: #BF7E96;
+            }
+
+        }
+    }
+}
+
+
+@media (min-width: 768px) {
+    .pro {
+        .info {
+            justify-content: center;
+            gap: 20%;
+
+            
+        }
+
+        .form {
+            width: 500px;
+
+            button {
+                margin-bottom: 50px;
+            }
+
+            input[type="submit"] {
+                background-color: #59362E;
+                color: #D9D2D0;
+                width: 30%;
+                float: right;
+                padding: 10px 0;
+
+                &:hover {
+                    background-color: #D9D2D0;
+                    color: #59362E;
+                    text-decoration: none;
+            
+                }
+            }
+        }
+
+        
+    }
+
+    .changePass {
+        .form {
+            input {
+                width: 30%;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .pro {
+        
+        * {
+            flex: 1;
+        }
+    }
+}

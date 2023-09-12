@@ -1,0 +1,31 @@
+<div class="log">
+  <a href="/" class="logo">TODO</a>
+  <h3>Sign In</h3>
+
+  <form action="/login" method="POST">
+
+    <label for="username"><b>Username or Email</b></label> <br>
+    <input type="text" placeholder="Enter Username" name="usernameOrEmail"> <br>
+
+    <label for="password"><b>Password</b></label> <br>
+    <input type="password" placeholder="Enter Password" name="password"> <br>
+
+    <% if(error) { %>
+      <p class="error"><%= error %></p>
+      <% } %>
+      
+    <div class="submit">
+      <input type="submit" value="Login" class="btn">
+    </div>
+
+  </form>
+
+  <div class="google">
+    <p>Or</p>
+    <ul>
+      <li><a href="/auth/google">Login with google</a></li>
+    </ul>
+  </div>
+
+  <div class="bottom"> you don't have an account ? <a href="/register">register</a></div>
+</div>

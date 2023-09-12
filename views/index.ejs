@@ -1,0 +1,197 @@
+<div class="main">
+  <h2>Welcome <%= currUser.username %>
+  </h2>
+
+  <div class="separator">
+
+    <div class="tasks">
+      <h3>There is your tasks: </h3>
+
+      <div class="dash">
+        <p>Today's Tasks</p>
+        <button class="hid">Add Task</button>
+      </div>
+      <div class="task">
+        <% if(todayData.length> 0) { todayData.forEach(task=> { %>
+          <a href="/tasks/<%= task._id %>">
+            <h3>
+              <%= task.title %>
+            </h3>
+            <p>
+              <%= task.description %>
+            </p>
+            <div class="date">
+              <span>
+                <%= task.dateId.date.toLocaleDateString('en-US') %>
+              </span>
+              <span>
+                <%= task.dateId.time %>
+              </span>
+            </div>
+          </a>
+          <div class="buttons">
+            <form action="/tasks/done/<%= task._id %>" method="post" class="delete done">
+              <button type="submit">Mark as Done</button>
+            </form>
+            <form action="/tasks/delete/<%= task._id %>" method="post" class="delete">
+              <button type="submit">deleteTask</button>
+            </form>
+          </div>
+          <hr>
+          <% })} else { %>
+            <div>
+              <p class="no">there is no tasks for today</p>
+            </div>
+            <% } %>
+      </div>
+
+      <div class="allTasks">
+        <div class="dash">
+          <p>All Tasks</p>
+        </div>
+        <div class="task">
+          <% if(data.length> 0) { data.forEach(task=> { %>
+            <a href="/tasks/<%= task._id %>">
+              <h3>
+                <%= task.title %>
+              </h3>
+              <p>
+                <%= task.description %>
+              </p>
+              <div class="date">
+                <span>
+                  <%= task.dateId.date.toLocaleDateString('en-US') %>
+                </span>
+                <span>
+                  <%= task.dateId.time %>
+                </span>
+              </div>
+            </a>
+            <div class="buttons">
+              <form action="/tasks/done/<%= task._id %>" method="post" class="delete done">
+                <button type="submit">Mark as Done</button>
+              </form>
+              <form action="/tasks/delete/<%= task._id %>" method="post" class="delete">
+                <button type="submit">deleteTask</button>
+              </form>
+            </div>
+            <hr>
+            <% })} else { %>
+              <div>
+                <p>there is no tasks</p>
+              </div>
+              <% } %>
+        </div>
+
+      </div>
+
+      <div class="doneTask">
+        <p>Done Tasks</p>
+        <div class="task">
+          <% if(doneTask.length> 0) { doneTask.forEach(task=> { %>
+            <a href="/tasks/<%= task._id %>">
+              <h3>
+                <%= task.title %>
+              </h3>
+              <p>
+                <%= task.description %>
+              </p>
+              <div class="date">
+                <span>
+                  <%= task.dateId.date.toLocaleDateString('en-US') %>
+                </span>
+                <span>
+                  <%= task.dateId.time %>
+                </span>
+              </div>
+            </a>
+            <div class="buttons">
+              <form action="/tasks/undone/<%= task._id %>" method="post" class="delete done">
+                <button type="submit">Mark as Undone</button>
+              </form>
+              <form action="/tasks/delete/<%= task._id %>" method="post" class="delete">
+                <button type="submit">deleteTask</button>
+              </form>
+            </div>
+            <hr>
+            <% })} else { %>
+              <div>
+                <p>there is no tasks</p>
+              </div>
+              <% } %>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="addTasks">
+
+      <div class="singleTask">
+        <h2>Next Task: </h2>
+        <div class="task">
+          <% if(data) { %>
+            <a href="/tasks/<%= data[0]._id %>">
+              <h3>
+                <%= data[0].title %>
+              </h3>
+              <p>
+                <%= data[0].description %>
+              </p>
+              <div class="date">
+                <span>
+                  <%= data[0].dateId.date.toLocaleDateString('en-US') %>
+                </span>
+                <span>
+                  <%= data[0].dateId.time %>
+                </span>
+              </div>
+            </a>
+  
+            
+          <div class="buttons">
+            <form action="/tasks/done/<%= data[0]._id %>" method="post" class="delete done">
+              <button type="submit">Mark as Done</button>
+            </form>
+            <form action="/tasks/delete/<%= data[0]._id %>" method="post" class="delete">
+              <button type="submit">deleteTask</button>
+            </form>
+          </div>
+
+          <% }  else {%>
+            <h2>Create Tasks</h2>
+            <% } %>
+
+        </div>
+      </div>
+
+      <div class="display">
+        <div class="close">
+          <button>close</button>
+        </div>
+        <h2>Add a Task</h2>
+        <form action="/tasks" method="post" class="form">
+        
+              <label>task title:</label> <br />
+              <input type="text" name="title" /><br />
+              <label>description</label> <br />
+              <textarea cols="35" rows="5" name="description"></textarea> <br />
+              <label>date:</label> <br />
+              <input type="date" name="date" /> <br />
+              <label>time:</label> <br />
+              <input type="time" name="time" /> <br>
+              <% if(error) { %>
+                <p class="error"><%= error %></p>
+                <% } %>
+              <div class="but">
+                <button type="submit">Add Task</button>
+              </div>
+        </form>
+      </div>
+
+      <div class="bottom">
+        <img src="/images/42502.png" alt="human hand typing">
+      </div>
+
+    </div>
+  </div>
+</div>

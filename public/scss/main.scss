@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Kanit', sans-serif;
+    background-color: #D9D2D0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+@import "home";
+@import "log";
+@import "mainPage";
+@import "header";
+@import "profile";
+@import "task";
+
+
+.error {
+    color: #73020C;
+    text-transform: capitalize;
+}
+
+.logo {
+    color: #D9D2D0;
+    font-weight: bolder;
+    margin: 0 auto;
+    text-decoration: none;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}

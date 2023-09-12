@@ -1,0 +1,42 @@
+<div class="pro">
+
+    <div class="info">
+        <% if (currUser.img) { %>
+            <div class="img">
+                <img src="<%= currUser.img %>" alt="profile image">
+                <% } else { %>
+                    <img src="/images/icons8-avatar-24.png" alt="">
+                    <% } %>
+            </div>
+            <div class="name">
+                <h2>
+                    <%= currUser.username %>
+                </h2>
+                <h3>
+                    <%= currUser.firstName %>
+                        <%= currUser.lastName %>
+                </h3>
+            </div>
+    </div>
+    <form action="/profile" method="post" class="form">
+        <label for="username"><b>username</b></label> <br>
+        <input type="text" placeholder="John" name="username" value="<%= currUser.username %>"> <br>
+
+        <label for="lastName"><b>lastName</b></label> <br>
+        <input type="text" placeholder="John" name="lastName" value="<%= currUser.lastName %>"> <br>
+
+        <label for="firstName"><b>firstName</b></label> <br>
+        <input type="text" placeholder="John" name="firstName" value="<%= currUser.firstName %>"> <br>
+
+        <label for="email"><b>email</b></label> <br>
+        <input type="email" placeholder="John" name="email" value="<%= currUser.email %>"> <br>
+
+        <label for="birthday"><b>Date of birth</b></label> <br>
+        <input type="date" placeholder="John" name="birthday" value="<%= currUser.birthday %>"> <br>
+
+        <button><a href="/changePassword">change password</a></button> <br>
+
+        <input type="submit" value="Update" class="btn">
+
+    </form>
+</div>
